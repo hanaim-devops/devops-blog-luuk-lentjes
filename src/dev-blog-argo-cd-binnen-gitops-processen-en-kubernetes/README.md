@@ -17,7 +17,9 @@ teams efficiënter kunnen werken. (Wang, 2023)
 
 <img src="./plaatjes/argocd-ui.gif">
 <i>Figuur 1: Argo CD UI https://argo-cd.readthedocs.io/en/stable</i>
-<br>
+<br />
+<br />
+
 In tegenstelling tot andere CD-tools, die voornamelijk gebruikmaken van push-based deployments, haalt Argo CD de 
 nieuwste versie van je Git-repository op en zet deze direct in als Kubernetes-resources. 
 Hierdoor wordt het voor ontwikkelaars eenvoudiger om zowel de infrastructuurconfiguratie als applicatie-updates in 
