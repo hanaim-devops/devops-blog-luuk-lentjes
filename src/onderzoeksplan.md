@@ -24,7 +24,8 @@ met en ICT’ers die Kubernetes gebruiken, maar nog niet bekend zijn met Argo CD
 
 ### Deelvraag 1: Wat is Argo CD en hoe ondersteunt het GitOps-processen?
 - **Methoden:**
-    - **Document analysis**: Analyseer de officiële Argo CD documentatie en andere relevante bronnen om een heldere definitie te geven van Argo CD en de ondersteuning van GitOps-processen.
+    - **Document analysis**: Analyseer de officiële Argo CD documentatie en andere relevante bronnen om een heldere 
+      definitie te geven van Argo CD en de ondersteuning van GitOps-processen.
     - **Literature study**: Zoek naar aanvullende literatuur, zoals blogs en whitepapers, die uitleggen hoe Argo CD binnen GitOps functioneert.
 
 ### Deelvraag 2: Hoe werkt de integratie van Argo CD met Kubernetes?
