@@ -158,7 +158,7 @@ Nu je bent ingelogd kan je beginnen met het deployen van applicaties.
 Om Argo CD te testen, kun je een applicatie naar keuze deployen. In dit onderzoek deploy ik een prime tester API. Deze API doet een GET request naar een website en geeft terug of het getal een priemgetal is of niet.
 
 De API is geconfigureerd om binnen Kubernetes te draaien. Je vindt de API-code op
-[prime-tester-api](./argo-cd/environments/dev).
+[prime-tester-api](https://github.com/hanaim-devops/devops-blog-luuk-lentjes/tree/main/src/dev-blog-argo-cd-binnen-gitops-processen-en-kubernetes/argo-cd/environments/dev).
 
 ### Applicatie deployen
 Voor de deployment moet je een application.yaml-bestand aanmaken. Dit bestand bevat alle benodigde informatie om de 
