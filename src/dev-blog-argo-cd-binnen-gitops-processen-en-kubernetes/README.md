@@ -3,73 +3,73 @@
 <hr/>
 
 ## Introductie Argo CD
-Argo CD is een declaratieve GitOps-tool voor continue delivery binnen Kubernetes. 
-Dit betekent dat je de gewenste eindtoestand van je applicatie en infrastructuur beschrijft, in plaats van 
-stap-voor-stap- handelingen uit te voeren om die eindtoestand te bereiken. Argo CD is ontworpen om  
-applicatiedeployments en lifecycle management automatisch, controleerbaar en
-gebruiksvriendelijk te maken. (Argo CD - Declarative GitOps CD For Kubernetes, z.d.)
+Argo CD is een declaratieve GitOps-tool die continue delivery binnen Kubernetes ondersteunt. Je beschrijft de 
+gewenste eindtoestand van je applicatie en infrastructuur, zonder dat je stap-voor-stap- handelingen uitvoert om
+die te bereiken. Argo CD automatiseert, controleert en vereenvoudigt applicatiedeployments en lifecycle management, 
+waardoor het eenvoudig blijft om te gebruiken. (Argo CD - Declarative GitOps CD For Kubernetes, z.d.)
 
-De tool is begonnen met releasen om 13 maart 2018 (Argoproj, z.d.) en was bedoeld om de complexiteit van 
-applicatiedeployments op Kubernetes te verminderen. Het project richtte zich op het automatiseren van workflows en 
-het verbeteren van de ontwikkelaarservaring, met functies zoals GitOps en diverse implementatiestrategieën. Door 
-deze functies streeft Argo ernaar om de zichtbaarheid en controle tijdens het deployproces te verbeteren, waardoor 
-teams efficiënter kunnen werken. (Wang, 2023)
+Op 13 maart 2018 releasete (Argoproj, z.d.) het team de tool met als doel de complexiteit van applicatiedeployments op Kubernetes te 
+verminderen. Het project richtte zich op het automatiseren van workflows en het verbeteren van de 
+ontwikkelaarservaring. Door functies zoals GitOps en verschillende implementatiestrategieën te bieden, zorgt Argo 
+CD ervoor dat teams de zichtbaarheid en controle tijdens het deployproces vergroten, wat hen helpt efficiënter te 
+werken. (Wang, 2023)
 
-<img src="./plaatjes/argocd-ui.gif">
-<i>Figuur 1: Argo CD UI https://argo-cd.readthedocs.io/en/stable</i>
-<br />
+<img src="./plaatjes/argocd-ui.gif"> <i>Figuur 1: Argo CD UI https://argo-cd.readthedocs.io/en/stable</i>
 <br />
 
-In tegenstelling tot andere CD-tools, die voornamelijk gebruikmaken van push-based deployments, haalt Argo CD de 
-nieuwste versie van je Git-repository op en zet deze direct in als Kubernetes-resources. 
-Hierdoor wordt het voor ontwikkelaars eenvoudiger om zowel de infrastructuurconfiguratie als applicatie-updates in 
-één systeem te beheren. (Team, 2024)
+### Functionaliteiten
+Argo CD haalt automatisch de nieuwste versie van je Git-repository op en zet deze direct om naar 
+Kubernetes-resources, in tegenstelling tot andere CD-tools die push-based deployments gebruiken. Dit vereenvoudigt 
+het beheer van infrastructuurconfiguraties en applicatie-updates voor ontwikkelaars in één systeem. (Team, 2024)
 
-Volgens Team (2024) biedt Argo CD de volgende kernfunctionaliteiten:
+Team (2024) beschrijft de volgende kernfunctionaliteiten van Argo CD:
 
-- Handmatige of automatische deployment van applicaties naar een Kubernetes-cluster.
-- Automatische synchronisatie van de applicatiestatus met de huidige versie van de declaratieve configuratie.
-- Een webinterface en een command-line interface (CLI).
-- Mogelijkheid om deploymentproblemen te visualiseren, configuration drift te detecteren en te herstellen.
-- Role-based access control (RBAC) waarmee multi-cluster management mogelijk is.
-- Single sign-on (SSO) met providers zoals GitLab, GitHub, Microsoft, OAuth2, OIDC, LinkedIn, LDAP en SAML 2.0.
-- Ondersteuning voor webhooks die acties triggeren in GitLab, GitHub en BitBucket.
+- Je kunt applicaties handmatig of automatisch deployen naar een Kubernetes-cluster.
+- Argo CD synchroniseert de applicatiestatus automatisch met de declaratieve configuratie.
+- De tool biedt zowel een webinterface als een command-line interface (CLI).
+- Het visualiseert deploymentproblemen en detecteert en herstelt configuration drift.
+- Role-based access control (RBAC) maakt multi-cluster management mogelijk.
+- Met Single sign-on (SSO) verbind je met providers zoals GitLab, GitHub, Microsoft, OAuth2, OIDC, LinkedIn, LDAP en 
+  SAML 2.0.
+- Webhooks ondersteunen acties die triggeren in GitLab, GitHub en BitBucket.
 
 ## Integratie met Kubernetes
-Hoe de architectuur van Argo CD eruit ziet, zie je in figuur 2.
-<img src="./plaatjes/argo-cd-architecture.png">
+Figuur 2 toont de architectuur van Argo CD. 
+
+<img src="./plaatjes/argo-cd-architecture.png"> 
+<br /> 
+<i>Figuur 2: Argo CD architectuur https://argo-cd.readthedocs.io/en/stable/operator-manual/architecture/ </i> 
 <br />
-<i>Figuur 2: Argo CD architectuur https://argo-cd.readthedocs.io/en/stable/operator-manual/architecture/</i> 
-<br />
 
-In figuur 2 zie je een gedeelte met een blauwe rand, wat de Argo CD-omgeving weergeeft. De applicatiecontroller 
-draait als een Kubernetes-controller en bewaakt continu de status van draaiende applicaties. Het vergelijkt de 
-huidige status van de applicaties met de gewenste status die is opgeslagen in een Git-repository. Als de 
-applicatiestatus afwijkt van de configuratie in Git, wordt dit gemarkeerd als een OutOfSync-status. Vervolgens 
-onderneemt de controller automatisch corrigerende maatregelen door de configuraties te synchroniseren, zodat de 
-applicatie weer overeenkomt met de gewenste status. (Architectural Overview - Argo CD - Declarative GitOps CD For 
-Kubernetes, z.d.)
+In het gedeelte met de blauwe rand zie je de Argo CD-omgeving. De applicatiecontroller functioneert als een 
+Kubernetes-controller die continu de status van draaiende applicaties bewaakt. Deze vergelijkt de huidige status 
+van applicaties met de gewenste status, die in een Git-repository is opgeslagen. Wanneer de applicatiestatus afwijkt
+van de configuratie in Git, markeert de controller dit als OutOfSync. Vervolgens synchroniseert de controller 
+automatisch de configuraties om de applicatie weer in lijn te brengen met de gewenste status. (Architectural 
+Overview - Argo CD - Declarative GitOps CD For Kubernetes, z.d.)
 
-De API server dienen als de gRPC/REST-interface die wordt gebruikt door de Web UI, CLI en CI/CD-systemen. Het is 
-verantwoordelijk voor verschillende essentiële taken, zoals applicatiebeheer, statusrapportage, en het uitvoeren 
-van applicatie-operaties zoals synchronisaties en rollbacks. Daarnaast beheert de API server repository- en 
-clustercredentials (opgeslagen als Kubernetes-secrets) en zorgt het voor authenticatie en autorisatie door externe 
-identiteitsproviders te integreren, bijvoorbeeld via Single Sign-On (SSO). Het handhaaft rolgebaseerde 
-toegangscontrole (RBAC) voor beveiligd gebruik. (Architectural Overview - Argo CD - Declarative GitOps CD For 
-Kubernetes, z.d.)
+De API server functioneert als de [gRPC/REST-interface](https://document360.com/blog/grpc-vs-rest/) die de Web UI, CLI 
+en CI/CD-systemen gebruikt. Deze server beheert belangrijke taken zoals applicatiebeheer, statusrapportage en het 
+uitvoeren van applicatie-operaties, 
+waaronder synchronisaties en rollbacks. De API server beheert ook de repository- en clustercredentials, die als 
+Kubernetes-secrets worden opgeslagen, en zorgt voor authenticatie en autorisatie via externe identiteitsproviders 
+zoals Single Sign-On (SSO). Het handhaaft rolgebaseerde toegangscontrole (RBAC) om de toegang tot de systemen te 
+beveiligen. (Architectural Overview - Argo CD - Declarative GitOps CD For Kubernetes, z.d.)
 
-Daarnaast is er de repositoryserver, een interne service die een lokale cache bijhoudt van de Git-repository waar 
-de applicatiemanifests worden opgeslagen. Deze server speelt een cruciale rol bij het genereren van 
-Kubernetes-manifests. Op basis van de repository URL, de revisie (commit, tag of branch), het applicatiepad en 
-eventuele template-specifieke instellingen (zoals Helm values.yaml) kan de repositoryserver de benodigde manifesten 
-retourneren om de gewenste Kubernetes resources te definiëren. (Architectural Overview - Argo CD - Declarative 
-GitOps CD For Kubernetes, z.d.)
+De repositoryserver is een interne service die een lokale cache bijhoudt van de Git-repository waar de 
+applicatiemanifests worden opgeslagen. Deze server genereert de Kubernetes-manifests op basis van inputs zoals de 
+repository URL, revisie (commit, tag of branch), het applicatiepad en template-specifieke instellingen, zoals Helm 
+values.yaml. Het retourneert vervolgens de manifesten die nodig zijn om de gewenste Kubernetes-resources te 
+definiëren. (Architectural Overview - Argo CD - Declarative GitOps CD For Kubernetes, z.d.)
 
-Door deze componenten werkt Argo CD naadloos samen met Kubernetes. Wanneer een ontwikkelaar bijvoorbeeld een nieuwe 
-versie van een applicatie pusht naar Git, detecteert Argo CD de wijziging, vergelijkt het de huidige toestand van 
-de Kubernetes-resources met de bijgewerkte configuratie in Git en synchroniseert het automatisch om de gewenste 
-status te herstellen. Deze GitOps-benadering maakt de integratie met Kubernetes krachtig, omdat het zorgt voor 
-gestroomlijnde en geautomatiseerde deployments, met behoud van controle en zichtbaarheid.
+Dankzij deze componenten integreert Argo CD moeiteloos met Kubernetes. Zodra een ontwikkelaar een nieuwe versie van 
+een applicatie pusht naar Git, detecteert Argo CD de wijziging, vergelijkt het de huidige toestand van de 
+Kubernetes-resources met de bijgewerkte configuratie in Git, en synchroniseert het om de gewenste status te 
+herstellen. Deze GitOps-benadering zorgt voor gestroomlijnde en geautomatiseerde deployments, terwijl controle en 
+zichtbaarheid behouden blijven.
+
+## Implementatie
+
 
 
 
