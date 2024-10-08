@@ -68,10 +68,70 @@ Kubernetes-resources met de bijgewerkte configuratie in Git, en synchroniseert h
 herstellen. Deze GitOps-benadering zorgt voor gestroomlijnde en geautomatiseerde deployments, terwijl controle en 
 zichtbaarheid behouden blijven.
 
-## Implementatie
+## Installatie van Argo CD
+Om Argo CD te kunnen gebruiken staat er op de documentatiepagina van Argo CD een paar requirements.
+Deze zijn:
+- [Kubernetes core](https://spacelift.io/blog/install-kubernetes) of met [docker-desktop](https://birthday.play-with-docker.com/kubernetes-docker-desktop/). 
+- [Kubectl](https://kubernetes.io/releases/download/#kubectl) command-line tool.
+
+De eerste stap is om een namespace aan te maken voor Argo CD. Dit kan met het volgende commando:
+```bash
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+```
+Hier komen de Argo CD resources en services in te staan.
+
+De tweede stap is om Argo CD CLI te installeren. Dit is nodig om later in te kunnen loggen om Argo CD.
+Dit kan op verschillende manieren, afhankelijk van je besturingssysteem.
+### Windows
+Eerst defineer je de versie van Argo CD en daarna installeer je de
+CLI. Voor de versie voer je het volgende commando uit. Verander eventueel de github link naar een versie naar keuze:
+```bash
+$version = (Invoke-RestMethod https://api.github.com/repos/argoproj/argo-cd/releases/latest)
+```
+En daarna installeer je Argo CD CLI met het volgende commando:
+```bash
+$url = "https://github.com/argoproj/argo-cd/releases/download/" + $version + "/argocd-windows-amd64.exe"
+$output = "argocd.exe"
+
+Invoke-WebRequest -Uri $url -OutFile $output
+```
+
+Dit download de argocd.exe in de huidige map. Om de CLI te gebruiken moet je het pad toevoegen aan de PATH variabele.
+Hier kan je kijken hoe dat moet: [Environment Variables](https://www.eukhost.com/kb/how-to-add-to-the-path-on-windows-10-and-windows-11/)
+
+### MacOS
+Om Argo CD CLI te installeren op MacOS kan je het volgende commando gebruiken:
+```bash
+brew install argocd
+```
+
+Nu je de CLI hebt geinstalleerd kan je controleren of de installatie goed is gegaan met het volgende commando:
+```bash
+argocd version
+```
+
+Standaard zijn de poorten van Argo CD niet toegankelijk van buitenaf. 
+Om dit wel mogelijk te maken zijn drie verschillende manieren mogelijk:
+- Service Type Load Balancer
+- Ingress
+- Port Forwarding
+
+De meest gebruikte manier is Port Forwarding. Dit kan met het volgende commando:
+```bash
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+```
+Nu kan je de webinterface bereiken op `http://localhost:8080`.
+Als meer wilt weten over het port forwarden van de Argo CD poort kan je [hier](https://argo-cd.readthedocs.io/en/stable/getting_started/#3-access-the-argo-cd-api-server) terecht.
+
+Nu je een manier hebt om Argo CD te bereiken kan je nu inloggen in de webinterface.
+De standaard username is `admin` en het wachtwoord kan je vinden met het volgende commando:
+```bash
+argocd admin initial-password -n argocd
+```
+
+Nu je bent ingelogd kan je beginnen met het deployen van applicaties.
 
 
-
-
-
+## Implementatie van Argo CD
 
