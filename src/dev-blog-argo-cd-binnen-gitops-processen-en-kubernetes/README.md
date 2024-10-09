@@ -224,5 +224,16 @@ manier om applicaties te deployen en beheren binnen een Kubernetes-cluster. Het 
 automatisering en controle, waardoor het een ideale keuze is voor moderne DevOps-omgevingen.
 
 
+## Bronnen
+- *Architectural Overview - Argo CD - Declarative GitOps CD for Kubernetes.* (z.d.). Geraadpleegd op 7 oktober 2024, van [https://argo-cd.readthedocs.io/en/stable/operator-manual/architecture/](https://argo-cd.readthedocs.io/en/stable/operator-manual/architecture/)
+- *Argo CD - Declarative GitOps CD for Kubernetes.* (z.d.). Geraadpleegd op 7 oktober 2024, van [https://argo-cd.readthedocs.io/en/stable/](https://argo-cd.readthedocs.io/en/stable/)
+- *Argoproj.* (z.d.). Releases · argoproj/argo-cd. GitHub. Geraadpleegd op 7 oktober 2024, van [https://github.com/argoproj/argo-cd/releases?page=42](https://github.com/argoproj/argo-cd/releases?page=42)
+- *Getting Started - Argo CD - Declarative GitOps CD for Kubernetes.* (z.d.). Geraadpleegd op 8 oktober 2024, van [https://argo-cd.readthedocs.io/en/stable/getting_started/](https://argo-cd.readthedocs.io/en/stable/getting_started/)
+- *Team, C. O.* (2024, 19 augustus). Argo CD. Codefresh. Geraadpleegd op 7 oktober 2024, van [https://codefresh.io/learn/argo-cd/](https://codefresh.io/learn/argo-cd/)
+- *Wang, H.* (2023, 5 december). Why We Created the Argo Project. Akuity. Geraadpleegd op 7 oktober 2024, van [https://akuity.io/blog/why-we-created-the-argo-project/](https://akuity.io/blog/why-we-created-the-argo-project/)
+- *What is Argo CD?* (2024, 24 april). Geraadpleegd op 7 oktober 2024, van [https://www.redhat.com/en/topics/devops/what-is-argocd](https://www.redhat.com/en/topics/devops/what-is-argocd)
+
+
+
 
 
