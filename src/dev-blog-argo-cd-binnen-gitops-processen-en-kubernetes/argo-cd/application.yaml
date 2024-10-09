@@ -7,7 +7,7 @@ spec:
   project: default
 
   source:
-    repoURL: git@github.com:hanaim-devops/devops-blog-luuk-lentjes.git
+    repoURL: https://github.com/hanaim-devops/devops-blog-luuk-lentjes.git
     targetRevision: HEAD
     path: src/dev-blog-argo-cd-binnen-gitops-processen-en-kubernetes/argo-cd/environments/dev
   destination:
