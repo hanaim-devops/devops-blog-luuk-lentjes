@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: api-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: localhost  # Replace with your domain
+      http:
+        paths:
+          - path: /api   # Adjust the path as needed
+            pathType: Prefix
+            backend:
+              service:
+                name: api
+                port:
+                  number: 4000
