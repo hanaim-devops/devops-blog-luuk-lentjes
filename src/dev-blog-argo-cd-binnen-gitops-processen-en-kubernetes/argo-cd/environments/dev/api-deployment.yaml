@@ -28,7 +28,7 @@ spec:
               value: "1433"
             - name: DB_USER
               value: SA
-          image: api
+          image: kslingerland/api-k8s:latest
           name: api
           ports:
             - containerPort: 8080
