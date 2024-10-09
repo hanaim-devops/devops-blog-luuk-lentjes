@@ -4,11 +4,13 @@ metadata:
   name: api-ingress
   namespace: primetester
 spec:
+  ingressClassName: nginx-example
   rules:
     - host: localhost
       http:
         paths:
           - pathType: Prefix
+            path: /
             backend:
                 service:
                     name: api
