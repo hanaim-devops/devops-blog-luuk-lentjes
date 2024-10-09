@@ -1,18 +1,13 @@
-apiVersion: networking.k8s.io/v1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: api-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+  namespace: primetester
 spec:
   rules:
-    - host: localhost  # Replace with your domain
+    - host: localhost
       http:
         paths:
-          - path: /api   # Adjust the path as needed
-            pathType: Prefix
-            backend:
-              service:
-                name: api
-                port:
-                  number: 4000
+          - backend:
+              serviceName: api
+              servicePort: 4000
