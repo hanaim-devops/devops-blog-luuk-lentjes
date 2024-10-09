@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: primetester-application
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: git@github.com:hanaim-devops/devops-blog-luuk-lentjes.git
+    targetRevision: HEAD
+    path: src/dev-blog-argo-cd-binnen-gitops-processen-en-kubernetes/argo-cd/environments/dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: primetester
+
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: true
