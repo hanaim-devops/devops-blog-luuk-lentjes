@@ -6,10 +6,10 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: localhost  # Replace with your domain
+    - host: localhost
       http:
         paths:
-          - path: /api   # Adjust the path as needed
+          - path: /
             pathType: Prefix
             backend:
               service:
