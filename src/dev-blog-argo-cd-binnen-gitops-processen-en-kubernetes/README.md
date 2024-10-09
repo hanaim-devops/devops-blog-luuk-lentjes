@@ -135,3 +135,70 @@ Nu je bent ingelogd kan je beginnen met het deployen van applicaties.
 
 ## Implementatie van Argo CD
 
+Om Argo CD te testen, kun je een applicatie naar keuze deployen. In dit onderzoek deploy ik een prime tester API. Deze API doet een GET request naar een website en geeft terug of het getal een priemgetal is of niet.
+
+De API is geconfigureerd om binnen Kubernetes te draaien. Je vindt de API-code op
+[prime-tester-api](./argo-cd/environments/dev).
+
+### Applicatie deployen
+Voor de deployment moet je een application.yaml-bestand aanmaken. Dit bestand bevat alle benodigde informatie om de 
+applicatie te deployen. Hieronder zie je hoe het bestand eruitziet:
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: primetester-application
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/hanaim-devops/devops-blog-luuk-lentjes.git
+    targetRevision: HEAD
+    path: src/dev-blog-argo-cd-binnen-gitops-processen-en-kubernetes/argo-cd/environments/dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: primetester
+
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: true
+```
+| Regel                             | Uitleg                                                                                                  |
+|-----------------------------------|---------------------------------------------------------------------------------------------------------|
+| `apiVersion: argoproj.io/v1alpha1` | Bepaalt de versie van de API die wordt gebruikt om deze resource te definiëren, specifiek voor Argo CD. |
+| `kind: Application`                | Geeft aan dat dit manifest een Argo CD Application resource definieert.                                 |
+| `name: primetester-application`    | De naam van de Argo CD Application. Deze naam moet uniek zijn binnen de opgegeven namespace.           |
+| `namespace: argocd`               | De namespace waarin deze Argo CD Application resource wordt aangemaakt.                                 |
+| `project: default`                | Geeft aan dat deze Application deel uitmaakt van het `default` project binnen Argo CD.                  |
+| `repoURL: https://github.com/hanaim-devops/devops-blog-luuk-lentjes.git` | De URL van de Git-repository die de applicatiemanifesten bevat.                                         |
+| `targetRevision: HEAD`            | Geeft de specifieke revisie aan van de repository die moet worden gebruikt. In dit geval is dat de laatste commit (HEAD). |
+| `path: src/dev-blog-argo-cd-binnen-gitops-processen-en-kubernetes/argo-cd/environments/dev` | Het pad binnen de repository naar de directory die de Kubernetes-manifesten bevat.                      |
+| `server: https://kubernetes.default.svc` | De URL van de Kubernetes API-server, standaard voor gebruik binnen een cluster.                          |
+| `namespace: primetester`          | De namespace binnen Kubernetes waar de applicatie moet worden gedeployed.                              |
+| `CreateNamespace=true`            | Zorgt ervoor dat de namespace automatisch wordt aangemaakt als deze nog niet bestaat.                    |
+| `automated:`                      | Bepaalt dat de synchronisatie automatisch moet plaatsvinden.                                             |
+| `selfHeal: true`                  | Zorgt ervoor dat Argo CD automatisch corrigerende maatregelen neemt als de applicatie uit sync raakt.   |
+| `prune: true`                     | Zorgt ervoor dat Argo CD resources verwijdert die niet langer in de repository staan.                    |
+
+Om de applicatie te deployen, voer je het volgende commando uit:
+```bash
+ kubectl apply -f <pad naar bestand>/application.yaml
+```
+
+Na de deployment kun je de status van de applicatie bekijken in de webinterface van Argo CD.
+
+<img src="./plaatjes/resultaat-argo-cd-application.png">
+
+
+Nu kan je de API ook bereiken via de volgende link: [http://localhost/swagger/index.html](http://localhost/swagger/index.html)
+## Conclusie
+
+
+
+
+
