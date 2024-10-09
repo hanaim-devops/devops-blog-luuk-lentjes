@@ -8,6 +8,9 @@ spec:
     - host: localhost
       http:
         paths:
-          - backend:
-              serviceName: api
-              servicePort: 4000
+          - pathType: Prefix
+            backend:
+                service:
+                    name: api
+                    port:
+                      number: 4000
