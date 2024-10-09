@@ -215,6 +215,10 @@ application.yaml-bestand, wat het gemak van Argo CD’s declaratieve benadering 
 Deze API toonde aan dat Argo CD effectief en betrouwbaar is in het beheren van Kubernetes-resources en 
 het faciliteren van continuous delivery binnen een GitOps-omgeving.
 
+Daarmee is het ook weer een nadeel van ArgoCD. Je moet al een basis hebben van Kubernetes en Git om ArgoCD te kunnen gebruiken.
+Hoewel de tool zelf logisch is, zijn de onderliggende Kubernetes-concepten, zoals namespaces en declaratieve 
+configuraties, niet altijd eenvoudig voor minder ervaren gebruikers.
+
 Argo CD is daarmee een waardevolle tool voor teams die streven naar een efficiëntere en meer gestructureerde 
 manier om applicaties te deployen en beheren binnen een Kubernetes-cluster. Het biedt de juiste balans tussen 
 automatisering en controle, waardoor het een ideale keuze is voor moderne DevOps-omgevingen.
