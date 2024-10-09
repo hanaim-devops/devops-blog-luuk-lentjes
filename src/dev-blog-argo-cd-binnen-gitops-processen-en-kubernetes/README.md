@@ -193,11 +193,31 @@ Om de applicatie te deployen, voer je het volgende commando uit:
 Na de deployment kun je de status van de applicatie bekijken in de webinterface van Argo CD.
 
 <img src="./plaatjes/resultaat-argo-cd-application.png">
+<img src="./plaatjes/resultaat-argo-cd-application-detail.png">
 
 
 Nu kan je de API ook bereiken via de volgende link: [http://localhost/swagger/index.html](http://localhost/swagger/index.html)
-## Conclusie
 
+## Conclusie
+In dit onderzoek heb ik onderzocht hoe Argo CD binnen GitOps-processen en Kubernetes ingezet kan worden voor het beheer 
+en de 
+automatisering van applicaties. Argo CD biedt een krachtige, declaratieve manier om applicaties te deployen en te 
+beheren, waarbij het gebruikmaakt van pull-based deployments in plaats van de traditionele push-based aanpak.
+Hierdoor kunnen ontwikkelaars gemakkelijk infrastructuur en applicatieconfiguraties beheren binnen één systeem.
+
+Een van de belangrijkste voordelen van Argo CD is de automatische synchronisatie met de Git-repository en het 
+self-healing mechanisme, wat ervoor zorgt dat applicaties altijd in de gewenste staat verkeren. 
+Ook biedt het uitgebreide ondersteuning voor verschillende interfaces zoals de CLI en de webinterface.
+
+Het deploymentproces van de prime tester API illustreerde hoe eenvoudig het is om Argo CD in te zetten binnen een 
+Kubernetes-omgeving. De API werd succesvol gedeployed en gesynchroniseerd, met behulp van een eenvoudig 
+application.yaml-bestand, wat het gemak van Argo CD’s declaratieve benadering benadrukt. 
+Deze API toonde aan dat Argo CD effectief en betrouwbaar is in het beheren van Kubernetes-resources en 
+het faciliteren van continuous delivery binnen een GitOps-omgeving.
+
+Argo CD is daarmee een waardevolle tool voor teams die streven naar een efficiëntere en meer gestructureerde 
+manier om applicaties te deployen en beheren binnen een Kubernetes-cluster. Het biedt de juiste balans tussen 
+automatisering en controle, waardoor het een ideale keuze is voor moderne DevOps-omgevingen.
 
 
 
