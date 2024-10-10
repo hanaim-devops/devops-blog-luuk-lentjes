@@ -46,7 +46,14 @@ Team (2024) beschrijft de volgende kernfunctionaliteiten van Argo CD:
 - Webhooks ondersteunen acties die triggeren in GitLab, GitHub en BitBucket.
 
 ## Integratie met Kubernetes
-Figuur 2 toont de architectuur van Argo CD. 
+Argo CD speelt een cruciale rol in het beheren van applicaties binnen Kubernetes door middel van een 
+GitOps-benadering. Het stelt teams in staat om de staat van hun applicaties automatisch te synchroniseren met 
+configuraties die zijn opgeslagen in een Git-repository. Hierdoor kunnen wijzigingen in applicaties eenvoudig en 
+consistent worden doorgevoerd, met als voordeel dat de omgeving altijd in de gewenste staat blijft.
+
+In figuur 2 wordt de architectuur van Argo CD weergegeven. Deze componenten werken nauw samen om ervoor te zorgen 
+dat elke wijziging die naar Git wordt gepusht, automatisch wordt toegepast op de Kubernetes-omgeving, zonder 
+handmatige tussenkomst.
 
 <img src="./plaatjes/argo-cd-architecture.png">
 
@@ -130,7 +137,7 @@ Om dit wel mogelijk te maken zijn drie verschillende manieren mogelijk:
 - Ingress
 - Port Forwarding
 
-De meest gebruikte manier is Port Forwarding. Dit kan met het volgende commando:
+De meest makkelijke manier is Port Forwarding. Dit kan met het volgende commando:
 ```bash
 kubectl port-forward svc/argocd-server -n argocd 8080:443
 ```
@@ -203,7 +210,8 @@ Om de applicatie te deployen, voer je het volgende commando uit:
  kubectl apply -f <pad naar bestand>/application.yaml
 ```
 
-Na de deployment kun je de status van de applicatie bekijken in de webinterface van Argo CD.
+Na de deployment kun je de status van de applicatie bekijken in de webinterface van Argo CD. Hier krijg je inzicht 
+in de huidige staat van de Priemtester-applicatie, inclusief of deze goed draait en of de configuratie overeenkomt met de instelling in Git.
 
 | <img alt="result argo cd application" src="./plaatjes/resultaat-argo-cd-application.png"> | <img width="650" alt="result argo cd application detail" src="./plaatjes/resultaat-argo-cd-application-detail.png"> |
 |:-----------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------:|
@@ -212,6 +220,33 @@ Na de deployment kun je de status van de applicatie bekijken in de webinterface 
 
 
 Nu kan je de API ook bereiken via de volgende link: [http://localhost/swagger/index.html](http://localhost/swagger/index.html)
+
+Nu je in de kluster zit van Primetester kan je meer gedetaileerde informatie vinden over de applicatie. Je kan op 
+alle blokken klikken om meer informatie te krijgen over de applicatie. 
+
+Daarnaast wanneer je een wijziging maakt in de repository, zal Argo CD dit detecteren en de applicatie automatisch 
+synchroniseren met de nieuwe configuratie. Bijvoorbeeld in figuur 5 en 6 zie je dat ik een aanpassing ga doen in de
+ingress en service van de applicatie.
+
+<img src="./plaatjes/update-ingress-port.png">
+<i>Figuur 5: Ingress port update</i>
+
+<img src="./plaatjes/update-api-service-port.png">
+<i>Figuur 6: Port update in api service</i>
+
+Als ik dit push naar de repository zal Argo CD dit detecteren en de applicatie updaten. Dit kan je zien in figuur 7.
+
+<img src="./plaatjes/argo-cd-sync.gif">
+
+<i>Figuur 7: Argo CD synchronisatie</i>
+
+In dit hoofdstuk hebben we nu de implementatie van Argo CD met de Priemtester-applicatie succesvol doorlopen. We 
+hebben geleerd hoe we een application.yaml-bestand aanmaken en configureren om de applicatie te deployen binnen een 
+Kubernetes-omgeving. De basisprincipes van Argo CD zijn besproken, waaronder de structuur van de configuratie, de 
+automatische synchronisatie van de applicatie en de mogelijkheid om de status via de webinterface te volgen. We 
+hebben ook gezien hoe wijzigingen in de repository automatisch worden gedetecteerd.
+
+Als je meer wilt weten over de mogelijkheden of nieuwsgierig bent, dan kan je naar de [documentatie](https://argo-cd.readthedocs.io/en/stable/) van Argo CD gaan.
 
 ## Conclusie
 In dit onderzoek heb ik onderzocht hoe Argo CD binnen GitOps-processen en Kubernetes ingezet kan worden voor het beheer 
