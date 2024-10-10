@@ -22,7 +22,10 @@ ontwikkelaarservaring. Door functies zoals GitOps en verschillende implementatie
 CD ervoor dat teams de zichtbaarheid en controle tijdens het deployproces vergroten, wat hen helpt efficiënter te 
 werken. (Wang, 2023)
 
-<img src="./plaatjes/argocd-ui.gif"> <i>Figuur 1: Argo CD UI https://argo-cd.readthedocs.io/en/stable</i>
+<img src="./plaatjes/argocd-ui.gif">
+
+<i>Figuur 1: Argo CD UI https://argo-cd.readthedocs.io/en/stable</i>
+
 <br />
 
 ### Functionaliteiten
@@ -44,9 +47,10 @@ Team (2024) beschrijft de volgende kernfunctionaliteiten van Argo CD:
 ## Integratie met Kubernetes
 Figuur 2 toont de architectuur van Argo CD. 
 
-<img src="./plaatjes/argo-cd-architecture.png"> 
-<br /> 
+<img src="./plaatjes/argo-cd-architecture.png">
+
 <i>Figuur 2: Argo CD architectuur https://argo-cd.readthedocs.io/en/stable/operator-manual/architecture/ </i> 
+
 <br />
 
 In het gedeelte met de blauwe rand zie je de Argo CD-omgeving. De applicatiecontroller functioneert als een 
@@ -201,7 +205,12 @@ Om de applicatie te deployen, voer je het volgende commando uit:
 Na de deployment kun je de status van de applicatie bekijken in de webinterface van Argo CD.
 
 <img src="./plaatjes/resultaat-argo-cd-application.png">
+<br />
+<i>Figuur 3: Argo CD applicatie overzicht</i>
+
 <img src="./plaatjes/resultaat-argo-cd-application-detail.png">
+<br />
+<i>Figuur 4: Argo CD applicatie detail</i>
 
 
 Nu kan je de API ook bereiken via de volgende link: [http://localhost/swagger/index.html](http://localhost/swagger/index.html)
