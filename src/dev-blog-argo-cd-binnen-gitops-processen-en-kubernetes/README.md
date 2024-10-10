@@ -1,5 +1,5 @@
 # Argo CD binnen GitOps-processen en Kubernetes
-<img src="./plaatjes/argo-cd-logo.png" width="250" align="right" alt="Prometheus logo" title="Prometheus logo">
+<img src="./plaatjes/argo-cd-logo.png" width="250" align="right" alt="Argo CD logo" title="Argo CD logo">
 
 *[Luuk Lentjes, oktober 2024.](https://github.com/hanaim-devops/devops-blog-luuk-lentjes/tree/main/src/dev-blog-argo-cd-binnen-gitops-processen-en-kubernetes)*
 <hr/>
@@ -205,13 +205,10 @@ Om de applicatie te deployen, voer je het volgende commando uit:
 
 Na de deployment kun je de status van de applicatie bekijken in de webinterface van Argo CD.
 
-<img src="./plaatjes/resultaat-argo-cd-application.png">
-<br />
-<i>Figuur 3: Argo CD applicatie overzicht</i>
+| <img alt="result argo cd application" src="./plaatjes/resultaat-argo-cd-application.png"> | <img width="650" alt="result argo cd application detail" src="./plaatjes/resultaat-argo-cd-application-detail.png"> |
+|:-----------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------:|
+| *Figuur 3: Argo CD applicatie overzicht*                                                               |                                        *Figuur 4: Argo CD applicatie detail*                                        |
 
-<img src="./plaatjes/resultaat-argo-cd-application-detail.png">
-<br />
-<i>Figuur 4: Argo CD applicatie detail</i>
 
 
 Nu kan je de API ook bereiken via de volgende link: [http://localhost/swagger/index.html](http://localhost/swagger/index.html)
