@@ -23,7 +23,7 @@ ontwikkelaarservaring. Door functies zoals GitOps en verschillende implementatie
 CD ervoor dat teams de zichtbaarheid en controle tijdens het deployproces vergroten, wat hen helpt efficiënter te 
 werken. (Wang, 2023)
 
-<img src="./plaatjes/argocd-ui.gif">
+<img alt="Argo CD UI" src="./plaatjes/argocd-ui.gif">
 
 <i>Figuur 1: Argo CD UI https://argo-cd.readthedocs.io/en/stable</i>
 
