@@ -228,15 +228,15 @@ Daarnaast wanneer je een wijziging maakt in de repository, zal Argo CD dit detec
 synchroniseren met de nieuwe configuratie. Bijvoorbeeld in figuur 5 en 6 zie je dat ik een aanpassing ga doen in de
 ingress en service van de applicatie.
 
-<img src="./plaatjes/update-ingress-port.png">
+<img alt="update-ingress-port" src="./plaatjes/update-ingress-port.png">
 <i>Figuur 5: Ingress port update</i>
 
-<img src="./plaatjes/update-api-service-port.png">
+<img alt="update-api-service-port" src="./plaatjes/update-api-service-port.png">
 <i>Figuur 6: Port update in api service</i>
 
 Als ik dit push naar de repository zal Argo CD dit detecteren en de applicatie updaten. Dit kan je zien in figuur 7.
 
-<img src="./plaatjes/argo-cd-sync.gif">
+<img alt="argo-cd-sync" width="650" src="./plaatjes/argo-cd-sync.gif">
 
 <i>Figuur 7: Argo CD synchronisatie</i>
 
