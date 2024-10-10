@@ -1,5 +1,6 @@
 # Argo CD binnen GitOps-processen en Kubernetes
 <img src="./plaatjes/argo-cd-logo.png" width="250" align="right" alt="Prometheus logo" title="Prometheus logo">
+
 *[Luuk Lentjes, oktober 2024.](https://github.com/hanaim-devops/devops-blog-luuk-lentjes/tree/main/src/dev-blog-argo-cd-binnen-gitops-processen-en-kubernetes)*
 <hr/>
 
