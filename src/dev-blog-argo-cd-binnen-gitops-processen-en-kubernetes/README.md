@@ -1,10 +1,18 @@
 # Argo CD binnen GitOps-processen en Kubernetes
-*[Luuk Lentjes, oktober 2024.](https://github.com/hanaim-devops/devops-blog-GoobyTheBOI/tree/main/src/dev-blog-name-in-kebab-case)*
+<img src="./plaatjes/argo-cd-logo.png" width="250" align="right" alt="Prometheus logo" title="Prometheus logo">
+*[Luuk Lentjes, oktober 2024.](https://github.com/hanaim-devops/devops-blog-luuk-lentjes/tree/main/src/dev-blog-argo-cd-binnen-gitops-processen-en-kubernetes)*
 <hr/>
 
+In mijn onderzoek kijk ik naar hoe je Argo CD kunt inzetten binnen GitOps-processen en Kubernetes. Tijdens mijn 
+huidige minor DevOps hebben we de principes van GitOps en continuous delivery behandeld, waarbij de focus ligt op 
+het automatiseren en optimaliseren van het deploymentproces. Argo CD speelt een belangrijke rol door zijn 
+declaratieve aanpak, waarmee je de staat van applicaties en infrastructuur via een Git-repository beheert. In dit 
+onderzoek laat ik zien hoe je Argo CD praktisch toepast binnen deze processen en welke voordelen en uitdagingen je 
+tegenkomt.
+
 ## Introductie Argo CD
-Argo CD is een declaratieve GitOps-tool die continue delivery binnen Kubernetes ondersteunt. Je beschrijft de 
-gewenste eindtoestand van je applicatie en infrastructuur, zonder dat je stap-voor-stap- handelingen uitvoert om
+Argo CD is een declaratieve GitOps-tool die continue delivery binnen Kubernetes ondersteunt. Dat betekent dat je 
+de gewenste eindtoestand beschrijft van je applicatie en infrastructuur, zonder dat je stap-voor-stap- handelingen uitvoert om
 die te bereiken. Argo CD automatiseert, controleert en vereenvoudigt applicatiedeployments en lifecycle management, 
 waardoor het eenvoudig blijft om te gebruiken. (Argo CD - Declarative GitOps CD For Kubernetes, z.d.)
 
